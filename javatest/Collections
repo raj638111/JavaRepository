@@ -1,0 +1,87 @@
+
+'*' represents Implementation
+
+-------------------------------------------------------------------------------------------
+Legacy Collections
+---------------------------------------------------------------------------
+	# Are thread safe
+	# *HashTable
+		+ We use keys to access values in Hash
+		? Difference b/w HashTable & HashMap
+			-> HashMap is not synchronized & therefore not Thread safe
+			-> HashMap can be used when multithreading is not a requirement
+			-> http://javahungry.blogspot.com/2014/03/hashmap-vs-hashtable-difference-with-example-java-interview-questions.html
+			
+				
+	# *Vector
+		+ Vector can grow in size whereas as an Array cannot
+		+ Vector can be accessed using the index no(ie 0, 1, 2 etc...)
+		? Vector vs Hashtable
+			http://www.coderanch.com/t/369007/java/java/Vector-Hashtable
+		
+	# *Stack
+		+ Is LIFO
+
+-------------------------------------------------------------------------------------------
+Collections that need to be Synchronized using Collections.synchronizedXXX
+---------------------------------------------------------------------------
+	# List
+		+ A list always preserves the order
+		+ http://www.coderanch.com/t/540641/java/java/maintain-order-list
+		+ *ArrayList
+			? Difference b/w ArrayList & LinkedList 
+			  - ArrayList uses Array, so search is faster, whereas linked list needs to
+			  	traverse
+			  - Element Deletion & insertion is faster in LinkedList
+			  - http://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/
+	# Set
+		+ A collection that contains no Duplication
+		+ Can maintain or do not maintain order based on the Implementation
+		+ http://stackoverflow.com/questions/1035008/what-is-the-difference-between-set-and-list
+		+  
+			  	
+	# Queue	
+		+ Insertion happens at tail & removal happens at head(FIFO)
+		+ *LinkedList (List)
+			- A Concrete Implementation of Queue
+			- Can also insert in between as this is a Linked List
+		+ *PriorityQueue 
+			- Can use our own Comparator to prioritize the elements in Queue
+			- http://www.journaldev.com/1642/java-priority-queue-priorityqueue-example
+
+	# Dequeue
+		+ Insertion/Deletion can happen at both end 
+		+ *ArrayDeque
+		
+	# *HashMap 
+		+ Hash of the Key is used to find a bucket
+		+ Bucket contains multiple key/values pairs which belong to the same Hash
+		  in the form of 'Entry' object
+		+ A Bucket is a linked list
+		+ Provides constant time performance (get & put)
+		+ http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html	
+
+
+
+-------------------------------------------------------------------------------------------
+Concurrent Collections
+---------------------------------------------------------------------------
+	
+	# BlockingQueue	 
+		+ While Dequeing, blocks if the queue is empty
+		+ While enqueing, blocks if the queue if full
+		+ Goes well with Published Subscriber Pattern
+		+ http://tutorials.jenkov.com/java-concurrency/blocking-queues.html
+	# List
+		+ *CopyOnArrayList
+			- Is a concurrent version of ArrayList
+			- Expensive because it creates a copy for every mutation operation
+			- Use it when we have more iteration & less mutation
+			- http://java67.blogspot.com/2012/09/what-is-copyonwritearraylist-in-java-example-vs-arraylist.html
+			- 
+	# ConcurrentMap
+		+ *ConcurrentHashMap
+			- Good because it only locks a portion of the Map & not the Whole 
+			  like HashTable or Synchronized Map
+			- http://javarevisited.blogspot.com/2013/02/concurrenthashmap-in-java-example-tutorial-working.html				
+		

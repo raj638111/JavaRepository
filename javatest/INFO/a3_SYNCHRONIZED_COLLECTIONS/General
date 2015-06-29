@@ -1,0 +1,18 @@
+
+	# In Synchronized collections, all the public methods are Synchronized,
+		so only one thread can access at a give time
+		
+	# Problems #79
+		Still need additional client side locking for compound actions
+		
+	# ConcurrentModificationException
+		-> 	Ex : When Vector is modified by one thread when iterating by other thread
+			this exception will be thrown
+			* This can be avoided in Concurrent Collections #85
+			
+
+	# Vector
+	
+	# HashTable	(What is the difference b/w HashMap & HashTable)
+	
+	# & all their cousins synchronized through 	Collections.synchronizedXxx #79

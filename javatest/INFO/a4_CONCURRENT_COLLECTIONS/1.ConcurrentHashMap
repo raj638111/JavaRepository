@@ -1,0 +1,11 @@
+
+	Info
+	------------------
+	
+		# 	Uses 'lock striping' #85
+
+	Some weaklinks
+	---------------------
+		# 	size() can  only be estimate #85
+		#	Also isEmpty()
+		# 	Not possible to lock the entire map like synchronized Map

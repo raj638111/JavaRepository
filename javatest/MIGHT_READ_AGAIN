@@ -1,0 +1,20 @@
+
+	# Visibility #33
+	# Stale data 
+		Can cause .. inaccurate computation & infinite loops #35
+	# Non-atomic 64-bit operations
+		double & long are non atomic #36
+		Use 'volatile' or protect with lock
+		
+	# Thread confinement
+		-> 	Ad-hoc thread confinement #43
+		-> 	Stack Confinement
+		
+	# Immutability
+		http://stackoverflow.com/questions/15655012/how-final-keyword-works #46
+		
+	# Using volatile to publish immutable objects #48
+		
+	# Thread safe collections #52
+	
+	# http://pierrchen.blogspot.com/2014/03/java-collections-framework-cheat-sheet.html

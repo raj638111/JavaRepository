@@ -1,0 +1,8 @@
+
+	# Avoid using 'volatile' variables if possible #37
+	
+	# Never allow 'this' reference escape during construction #41
+		# Read more about 'safe construction' practice here...#41
+		# Check out 'bad' & 'good' examaple #41, #42
+		
+	# Immutable object are always thread safe #46

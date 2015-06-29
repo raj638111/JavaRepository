@@ -1,0 +1,53 @@
+Binding Tools :
+Locks in Java
+-----------------------------------------------
+
+	# Intrinsic Lock
+		-> Each object has an intrinsic lock available which can be used for synchronization
+	# Reentrant Lock
+		-> Good 
+			- Provides Interruptibility & timed wait
+			- Also provides fairness, so a long waiting thread might be able to acquire the lock
+		-> Bad
+			- Unlock needs to happen in finally block, which we might miss sometimes
+			- http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html
+
+
+Ways to create Threads
+-----------------------------------------------
+
+	# 'implements Runnable'
+		-> public class FileCrawler implements Runnable
+		-> new Thread(new FileCrawler(queue, filter, root)).start();
+		
+	
+	# 'extends Thread'
+		-> private static class ReaderThread extends Thread #34
+		-> Create the object in main() & call the start method
+		
+	# Implement 'ExecutorService'(exec) Interface
+		-> Can be used to create Thread pool
+		-> Used along with Runnable
+		-> exec = Executors.newFixedThreadPool(NTHREADS); exec.execute(Runnable) #118, #120
+		-> 'submit' method can also be used instead of 'execute' method
+		   'submit' returns a 'Future'(Future.get has return value of Callable.call method) 
+		-> Based on producer consumer pattern #117
+		
+	
+	# Implement 'ExecutorService' Interface
+		-> Used to create Thread Pool
+		-> User along with 'Callable' & 'Future' (Future is used to retrieve results 
+		   from Callable)
+		-> http://javahash.com/java-concurrency-future-callable-executor-example/
+		
+		
+Others
+-----------------------
+
+	# Do I extend Thread or Implement Runnable
+		-> Runnable provides space for extending the Class 
+		-> Runnable is lightweight compared to Thread
+		-> http://stackoverflow.com/questions/15471432/why-implements-runnable-is-preferred-over-extends-thread
+		
+		 
+		

@@ -1,0 +1,17 @@
+
+	# liveness
+		 liveness failure etc..(for loop, deadlock, starvation & livelock) #8
+		 
+	# Invariant 
+		A property that remains unchange when a specified transformation is applied #web
+		
+	# published
+		An object is said to be published when it can be referred by others #39
+		
+	# escaped
+		-> 	An object is said to be escaped when the object is not 
+			supposed to be published at that time #40
+			
+	# Not properly constructed
+			-> 	When an object publish itself during consrtuction phase it is said to be
+				not propertly constrcuted 

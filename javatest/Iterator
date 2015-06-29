@@ -1,0 +1,18 @@
+
+
+	Fail fast iterator
+		 -> Incase, we have called iterator on a collection object, and another
+		 	thread tries to modify the collection object, then concurrent 
+		 	modification exception will be thrown
+		 -> Detected using 'mods' flag
+		 -> According to oracle, there is no hard guarantee for this exception to
+		 	be thrown all the time
+		 -> http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
+		 -> Ex : HashMap, Vector, ArrayList, HashSet
+		 
+	Fail Safe Iterator
+		->	Do not throw Concurrent Modification Exception as the iterator works on the
+			copy of the data structure rather than the original
+		->	Ex : ConcurrentHashMap, CopyOnWriteArrayList
+		 
+		 

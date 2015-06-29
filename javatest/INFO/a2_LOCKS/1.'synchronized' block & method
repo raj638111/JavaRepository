@@ -1,0 +1,78 @@
+
+
+Intrinsic lock (or) Monitor Locks
+-------------------------------------------------
+	# 	Each Java object has a lock already available called as intrinsic lock #25
+	# 	Acts as a Mutex
+	# 	Performance issue : Once locking is done by 'synchronized' block the entire
+		object becomes unavailable for other threads(which might enter 'synchronized' block
+		in some other method
+
+Reentrancy(aka Reentrant) #26
+-------------------------------------------------
+	# 	An intrinsic lock can be acquired multiple times by the same thread
+	#	So an intrinsic lock is also reentrant
+	#	A good example here...#27
+
+
+	
+Example (This has performance issue) #26
+-------------------------------------------------
+
+	@ThreadSafe
+	public class SynchronizedFactorizer implements Servlet {
+	
+		@GuardedBy("this") private BigInteger lastNumber;
+		@GuardedBy("this") private BigInteger[] lastFactors;
+
+		public synchronized void service(ServletRequest req,
+		ServletResponse resp) {
+			BigInteger i = extractFromRequest(req);
+			if (i.equals(lastNumber))
+			encodeIntoResponse(resp, lastFactors);
+			else {
+				BigInteger[] factors = factor(i);
+				lastNumber = i;
+				lastFactors = factors;
+				encodeIntoResponse(resp, factors);
+			}
+		}
+	}
+	
+	
+	
+Example (Same as above but optimized) #31
+----------------------------------------------------
+	
+@ThreadSafe
+public class CachedFactorizer implements Servlet {
+@GuardedBy("this") private BigInteger lastNumber;
+@GuardedBy("this") private BigInteger[] lastFactors;
+@GuardedBy("this") private long hits;
+@GuardedBy("this") private long cacheHits;
+public synchronized long getHits() { return hits; }
+public synchronized double getCacheHitRatio() {
+return (double) cacheHits / (double) hits;
+}
+public void service(ServletRequest req, ServletResponse resp) {
+BigInteger i = extractFromRequest(req);
+BigInteger[] factors = null;
+synchronized (this) {
+++hits;
+if (i.equals(lastNumber)) {
+++cacheHits;
+factors = lastFactors.clone();
+}
+}
+if (factors == null) {
+factors = factor(i);
+synchronized (this) {
+lastNumber = i;
+lastFactors = factors.clone();
+}
+}
+encodeIntoResponse(resp, factors);
+}
+}	
+	
+	

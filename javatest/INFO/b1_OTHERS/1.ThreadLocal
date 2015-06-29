@@ -1,0 +1,11 @@
+
+
+	ThreadLocal
+		->	Use this type to store thread specific variables #45
+		->	private static ThreadLocal<Connection> connectionHolder //45
+			= new ThreadLocal<Connection>() {
+				public Connection initialValue() {
+					return DriverManager.getConnection(DB_URL);
+				}
+			};
+		
