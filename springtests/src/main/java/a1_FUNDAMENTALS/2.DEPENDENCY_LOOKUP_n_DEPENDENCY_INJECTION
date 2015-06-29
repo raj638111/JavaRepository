@@ -1,0 +1,29 @@
+
+Inversion of Control
+----------------------------------------------------------
+
+    #   Is achieved using 2 ways
+        +   Dependency Lookup   --10
+        +   Dependency Injection
+        
+    
+Dependency Lookup
+----------------------------------------------------------10
+
+    #   A component looks for the dependent component
+        by using the callback method provided by the Container
+        
+    #   Good Diagram here...#10
+        
+        
+Dependency Injection
+----------------------------------------------------------10
+
+    #   Lookup logic(as done in Dependency Lookup) is removed from Application Code
+    
+    #   Dependent component is injected into a Component by Container
+        using the Components Constructor & Setter method
+        
+    #   Dependencies are configurable as part of the Container           
+        
+    

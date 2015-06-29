@@ -1,0 +1,22 @@
+
+EJB Issues
+---------------------------------------
+
+    #   Need to create 3 classes #2
+    #   Although web components & EJB components are part of the same
+        Application Server(Web Container, EJB Container) they communicated using RMI
+
+LightWeight Containers
+---------------------------------------8
+
+    #   Expected to provide the following services
+        +   Read more...#9
+        
+    #   Available Containers
+    
+        +   Servlet Container
+            -  Creates & Manages components of Web Application
+        +   EJB Container
+        +   Spring Container      
+                     
+    
