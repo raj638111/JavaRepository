@@ -1,0 +1,16 @@
+
+
+    #   Can be used to define the bean creation order
+    
+    #   Done using
+     
+        +   'depends-on' attribute 
+            -   For XML Based configuraton
+            -   <bean id="a" class="com.wiley.beginningspring.ch2.A" depends-on="b,c"/> #38
+            
+        +   'org.springframework.context.annotation.DependsOn' annotation   #38
+            -   For Java & Annotation based configuration
+            
+            
+            
+            

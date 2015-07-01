@@ -1,0 +1,50 @@
+
+Info
+-------------------------------------------------
+
+    #   If developers do not assign a name, spring will assign
+        an internal name
+        
+Xml Based Configuration
+-------------------------------------------------#45
+
+    #   Done using
+        +   'id' attribute & 
+        +   'name' attribute
+                Using 'name' attribute we can give multiple names
+                
+    #   Breadcrumb
+        +   'alias'
+
+    #   Example
+        +   <bean id="accountDaoInMemory" class="com.wiley.
+                        beginningspring.ch2.AccountDaoInMemoryImpl"/>
+                    
+Annotation Based Configuration
+-------------------------------------------------#45
+            
+    #   Use @Component & its derivatives(@Service etc...)
+    
+    #   Example
+        +   @Service("accountService")
+            public class AccountServiceImpl implements AccountService {
+                //...
+            }
+
+Java Based Configuration
+-------------------------------------------------#45
+
+    #   Use @Bean
+    
+    #   Example
+        @Configuration
+        public class Ch2BeanConfiguration {
+            @Bean(name={"accountDao,accountDaoInMemory"})
+            public AccountDao foo() {
+                AccountDaoInMemoryImpl bean = new AccountDaoInMemoryImpl();
+                //depedencies of accountDao bean will be injected here...
+                return bean;
+            }
+            //...
+        }
+    

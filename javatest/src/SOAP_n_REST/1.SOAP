@@ -1,0 +1,13 @@
+
+
+    #   WSDL Components,
+        +   Data type 
+            -     Are in the form of XML Schemas
+            
+        +   Operation
+            -   Relates to method
+            
+        +   Binding
+            -   Protocol is defined here(Ex : HTTP)
+            
+        +   http://www.tutorialspoint.com/wsdl/wsdl_elements.htm

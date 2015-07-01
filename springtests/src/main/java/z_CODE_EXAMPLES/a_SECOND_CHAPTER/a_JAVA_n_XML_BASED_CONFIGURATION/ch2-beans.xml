@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="accountService" class="z_CODE_EXAMPLES.a_SECOND_CHAPTER.a_JAVA_n_XML_BASED_CONFIGURATION.AccountServiceImpl">
+		<property name="accountDao" ref="accountDao"/>
+	</bean>
+	
+	<bean id="accountDao" class="z_CODE_EXAMPLES.a_SECOND_CHAPTER.a_JAVA_n_XML_BASED_CONFIGURATION.AccountDaoInMemoryImpl">
+	
+	</bean>
+
+</beans>

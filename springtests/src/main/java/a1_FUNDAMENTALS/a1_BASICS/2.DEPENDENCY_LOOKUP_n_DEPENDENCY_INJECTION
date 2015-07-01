@@ -5,12 +5,13 @@ Inversion of Control
     #   Is achieved using 2 ways
         +   Dependency Lookup   --10
         +   Dependency Injection
+    #   Cotainers that implement this paradigm are called as IoC Containers #11
         
     
 Dependency Lookup
 ----------------------------------------------------------10
 
-    #   A component looks for the dependent component
+    #   A component looks for the dependent component(Normally done using JNDI)
         by using the callback method provided by the Container
         
     #   Good Diagram here...#10
@@ -19,11 +20,16 @@ Dependency Lookup
 Dependency Injection
 ----------------------------------------------------------10
 
-    #   Lookup logic(as done in Dependency Lookup) is removed from Application Code
-    
     #   Dependent component is injected into a Component by Container
         using the Components Constructor & Setter method
+
+    #   Lookup logic(as done in Dependency Lookup) is removed from Application Code
         
-    #   Dependencies are configurable as part of the Container           
+    #   Dependencies are configurable as part of the Container     
+    
+    #   2 Types
+        +   Setter Injection    
+        +   Constrcutor Injection   (Not possible to inject at runtime after the Object Creation)
+                  
         
     

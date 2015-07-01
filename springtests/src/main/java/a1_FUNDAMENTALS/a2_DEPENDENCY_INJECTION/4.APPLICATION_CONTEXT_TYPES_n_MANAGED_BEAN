@@ -1,0 +1,51 @@
+
+Info
+-------------------------------------------------------
+
+    #   'ApplicationContext'
+        +   Is the Spring Container Instance. For example refer... # MainConfig.java  #25
+
+Java based Meta data
+-------------------------------------------------------
+
+    #   'AnnotationConfigApplicationContext' is used for processing
+        Java based Configuration Metadata # Ch2BeanConiguration.java 
+        
+
+XML Based Meta data
+-------------------------------------------------------
+
+    #   'ClassPathXmlApplicationContext' is used to process XML based 
+        configuration Metadata  # ch2-beans.xml #26
+
+Annotation based Meta data
+-------------------------------------------------------
+
+                    
+    #   'ClassPathXmlApplicationContext' is used for Annotation based 
+        configuration metadata processing   # MainAnnotationBased.java #27
+                                            # AccountServiceImplAnn.java
+                                            # AccountDaoImMemoryImplAnn.java
+                                                                                                  
+    #   Important Annotations
+        +   @Service    : Defines a Spring Managed Bean
+        +   @Repository : Defines a Bean with additional capability for data access
+        
+            (Bean names are derived from the Class Name starting with lower case)
+            (Both Annotations are extension of @component annotation)
+            
+        +   @Autowired  : Indicates a setter method to inject dependency
+        
+    #   Component Scan Process #29
+    
+        +   Is the process of creating bean by Scanning Classes in Classpath  
+        +   <context:component‐scan/> element is used to narrow the Classpath #annotationbased.xml
+            & reduce the component scanning time 
+            Breadcrumb : Schema location directives
+                
+Managed Bean
+-------------------------------------------------------
+     
+        #   Is the Bean instance created from the Config Meta File(which can be     # Ch2BeanConiguration.java  
+            Java or XML based) and is managed by the Spring Container        #25
+        #   Breadcrumb : Singleton Scope 

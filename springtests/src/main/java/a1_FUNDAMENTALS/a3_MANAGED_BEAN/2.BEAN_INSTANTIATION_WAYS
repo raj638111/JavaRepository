@@ -1,0 +1,38 @@
+
+XML Based Configuration
+---------------------------------------------------#46
+
+    #   Use Constructor
+    
+        Example
+        -----------
+    
+        +   <bean id="foo2" class="com.wiley.beginningspring.ch2.Foo">
+                <constructor-arg value="foo2"/>
+            </bean>
+            
+            
+    #   Invoke factory methods using attributes
+        +   'factory-method' or
+        +   'factory-bean'  
+        
+        +   Check example here...#47
+        
+Annotation & Java Based Configuration
+---------------------------------------------------#47
+
+    #   Use @Configuration & @Bean  Java Based  
+    #   Use @Component & @Bean      Annotation Based
+    
+    
+Factory Bean Interface    
+---------------------------------------------------#48
+    
+    #   Breadcrumb
+        +   getObject()
+        +   getObjectType()
+    
+    
+    
+    
+     

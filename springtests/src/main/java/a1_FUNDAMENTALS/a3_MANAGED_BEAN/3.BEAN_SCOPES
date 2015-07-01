@@ -1,0 +1,30 @@
+
+Info
+--------------------------------------------------------#48
+
+    #   Lifetime of the Beans created by Container is
+        called 'Bean Scopes'
+        
+    #   Scope Types
+    
+        +   'singleton'
+            -   Only instance of the bean is created
+            
+        +   'prototype'
+            -   Every access to bean definition causes a 
+                new bean instance created
+                
+        +   'request'
+            -   Only works with Web Application
+             
+        +   'session'
+            -   Only works with Web Application
+            
+        +   'globalSession'        
+            -   Only useful with Portlet based web application
+            
+            
+    #   Breadcrumb 
+        +   <aop:scoped‐proxy> & more...#49
+            aop : aspect oriented programming #49
+        +   @Scope

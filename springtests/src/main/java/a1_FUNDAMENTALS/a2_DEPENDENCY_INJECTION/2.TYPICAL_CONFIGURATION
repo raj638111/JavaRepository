@@ -1,0 +1,11 @@
+
+
+    #   Typically the configuration is divided into multiple layers #20
+    
+    #   An Example
+        
+        Presentation Layer          beans-web.xml       ConfigurationForWeb class 
+        Business/Service Layer      beans-service.xml   CofigurationForService
+        Data Access Layer           beans-dao.xml       CofigurationForDao
+        Container Specific Layer    beans-config.xml    ConfigurationForConfig
+        Security Layer              beans-security.xml  ConfigurationForSecurity

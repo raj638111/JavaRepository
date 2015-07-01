@@ -1,0 +1,8 @@
+
+
+    #   Container is also a Java Object which is created/started to 
+        manage rest of the Application #21
+        
+    #   Can be instantiated as,
+        1.  Standalone Application 
+        2.  Using declarative approach(Web.xml)      

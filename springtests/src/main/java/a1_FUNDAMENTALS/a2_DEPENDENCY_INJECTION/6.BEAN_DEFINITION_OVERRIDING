@@ -1,0 +1,9 @@
+
+Info
+---------------------------------------------------------
+
+    #   Bean defintion with the same names/id will be overriden #36
+    #   Can happen in 2 situtation
+        +   When multiple Metadata files have beans with same name  #36
+        +   When multiple Application Contexts(with Parent-Child relation)  #38 
+            have beans with the same name

@@ -3,4 +3,11 @@
   <groupId>com.spring</groupId>
   <artifactId>springtests</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+	  <dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-context</artifactId>
+	<version>4.0.5.RELEASE</version>
+	</dependency>
+  </dependencies>
 </project>

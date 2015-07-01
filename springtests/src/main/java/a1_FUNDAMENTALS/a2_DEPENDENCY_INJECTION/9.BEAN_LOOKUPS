@@ -1,0 +1,25 @@
+
+Info
+----------------------------------------------------------
+
+    #   Bean lookups can be performed once we have the 
+        'ApplicationContext'
+
+Retrieving ApplicationContext in Standalone Application
+----------------------------------------------------------
+
+    #   Store it a Static variable #43
+
+Retrieving ApplicationContext in Web Application
+----------------------------------------------------------
+    
+    #   Can be retrived with the help of 'WebApplicationContextUtils' #43
+    
+Retrieving ApplicationContext inside a Managed Bean
+----------------------------------------------------------
+
+    #   Implement the Bean with 'ApplicationContextAware' #44
+    #   Breadcrumb
+        +   prototype-scope & singleton-scope
+        +   @Autowired
+    

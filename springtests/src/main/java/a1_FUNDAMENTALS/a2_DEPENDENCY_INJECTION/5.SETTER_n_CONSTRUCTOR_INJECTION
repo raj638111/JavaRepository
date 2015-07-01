@@ -1,0 +1,57 @@
+
+Setter Injection
+---------------------------------------------------------
+
+    #   Performed after Bean instance is created #29
+    #   <property> element is used
+    
+    Example
+    --------------
+    
+        <bean id="accountService" class="com.wiley.beginningspring.ch2.AccountServiceImpl">
+            <property name="accountDao">
+                <ref bean="accountDao"/>
+            </property>
+        </bean>
+        
+Constructor Injection
+---------------------------------------------------------
+       
+    #   Injection done duing Construction Phase of the bean #31
+    #   <constructor-arg> element is used
+    
+    Example
+    -----------------
+    
+        public class AccountServiceImpl implements AccountService {
+            private AccountDao accountDao;
+            
+            public AccountServiceImpl(AccountDao accountDao) {
+                this.accountDao = accountDao;
+            }
+        }
+        
+        <?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+            
+            <bean id="accountService" class="com.wiley.beginningspring.ch2.AccountServiceImpl">
+                <constructor-arg ref="accountDao"/>
+            </bean>
+            
+            <bean id="accountDao" class="com.wiley.beginningspring.ch2.AccountDaoInMemoryImpl">
+            </bean>
+        </beans>
+        
+        
+Circular Dependencies
+---------------------------------------------------------
+
+    #   Cannot be resolved using Constructor Injection #34
+    #   Read more...#34
+    
+
+
+        

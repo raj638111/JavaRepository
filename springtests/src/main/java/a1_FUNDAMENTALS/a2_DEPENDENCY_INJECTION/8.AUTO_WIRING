@@ -1,0 +1,43 @@
+Info
+-------------------------------------------------------39
+
+    #   Dependency injection can be performed automatically
+        This is called 'Autowiring'
+    
+Autowiring Bean Members
+-------------------------------------------------------39
+
+    
+    #   Three Modes (All these modes are set in the @Bean annotation)  |- 
+        +   byType Mode
+            -   Container tries to inject based on the types of the #39 
+                property of the Class(associated with Bean) 
+                
+        +   byName Mode
+            -   Container tries to map the Class Property name with Bean Name #39
+            
+        +   constructor Mode
+            - ...
+    #   Autowiring without using 'autowire' attribe in @Bean #41
+    
+        + Can be done using @Qualifier & @Autowired 
+        + more... #41
+
+    #   Java based Bean configuration
+        ------------------------------
+
+        @Bean(autowire=Autowire.BY_TYPE) //40
+        public AccountService accountService() {
+            AccountServiceImpl bean = new AccountServiceImpl();
+            return bean;
+        }
+
+Autowiring int, boolean Members
+-------------------------------------------------------42
+                 
+    #   Done using @Value annotation
+    #   Breadcrumb
+        +   Expression Driven dependency injection
+        +   SpEL expression
+        +   <context:property‐placeholder/>
+    #   Read more...#42                 

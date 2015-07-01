@@ -1,0 +1,64 @@
+
+Beans
+--------------------------------------------------------18
+
+    #   Are instances created & managed by Spring Container
+
+Configuration Metadata
+--------------------------------------------------------18
+    
+    #   Beans, its instantiation & its wiring needs to be specified in
+        Configuration Metadata
+        
+    #   Application Classes are assembled as Beans with the help of this Configurtion information
+    
+    #   Ways to configure  #19
+        1.  XML Based
+        2.  Annotation Based
+        3.  Java Based        
+        
+Example : XML Based
+--------------------------------------------------------
+
+        <beans xmlns="http://www.springframework.org/schema/beans"...">
+            <bean id="accountService" class="com.wiley.beginningspring.ch2.AccountServiceImpl">
+                <property name="accountDao" ref="accountDao"/>
+            </bean>
+            <bean id="accountDao" class="com.wiley.beginningspring.ch2.AccountDaoInMemoryImpl">
+                <!-- dependencies of accountDao will be defined here -->
+            </bean>
+        </beans>
+        
+Example : Annotation Based
+--------------------------------------------------------  
+        @Service("accountService")
+        public class AccountServiceImpl implements AccountService {
+            private AccountDao accountDao;
+            @Autowired
+            public void setAccountDao(AccountDao accountDao) {
+                this.accountDao = accountDao;
+            }
+        }
+        
+        @Repository("accountDao")
+            public class AccountDaoInMemoryImpl implements AccountDao {
+        }
+
+Example : Java Based    #20
+--------------------------------------------------------
+
+        @Configuration
+        public class Ch2BeanConfiguration {
+            @Bean
+            public AccountService accountService() {
+                AccountServiceImpl bean = new AccountServiceImpl();
+                bean.setAccountDao(accountDao());
+                return bean;
+            }
+            @Bean
+            public AccountDao accountDao() {
+                AccountDaoInMemoryImpl bean = new AccountDaoInMemoryImpl();
+                //depedencies of accountDao bean will be injected here...
+                return bean;
+            }
+        }
