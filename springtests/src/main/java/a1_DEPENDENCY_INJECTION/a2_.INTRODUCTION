@@ -32,4 +32,9 @@ Dependency Injection
         +   Constrcutor Injection   (Not possible to inject at runtime after the Object Creation)
                   
         
+Beans (aka Managed Bean)
+--------------------------------------------------------18
+
+    #   Are instances created & managed by Spring Container
+    
     

@@ -1,0 +1,21 @@
+
+Questions
+--------------------------------------------------------
+
+    a   Second argument is supposed to do upcasting. but the book says downcasting? #25
+    b   Find out how to use @Values annotation #58
+        Understand the placeholder mechanism
+    c   Find way to publish spring mvc web app from inside Eclipse #70 
+    d   At page 72, he is giving an example of annotation based, is that a Java based configuration?
+        Looks like some discrepancy
+            
+Answers
+--------------------------------------------------------
+    
+    b   @Value : Indicates a default value experession
+        +   public Foo prodFoo(@Value("${name}") String name) {
+        
+        
+                
+                
+                ----------------

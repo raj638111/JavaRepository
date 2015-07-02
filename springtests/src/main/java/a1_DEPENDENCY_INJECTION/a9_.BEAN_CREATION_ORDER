@@ -1,7 +1,5 @@
 
 
-    #   Can be used to define the bean creation order
-    
     #   Done using
      
         +   'depends-on' attribute 

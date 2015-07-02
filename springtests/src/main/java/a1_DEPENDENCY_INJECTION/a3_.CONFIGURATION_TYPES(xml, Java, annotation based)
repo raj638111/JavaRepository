@@ -1,23 +1,5 @@
 
-Beans
---------------------------------------------------------18
-
-    #   Are instances created & managed by Spring Container
-
-Configuration Metadata
---------------------------------------------------------18
-    
-    #   Beans, its instantiation & its wiring needs to be specified in
-        Configuration Metadata
-        
-    #   Application Classes are assembled as Beans with the help of this Configurtion information
-    
-    #   Ways to configure  #19
-        1.  XML Based
-        2.  Annotation Based
-        3.  Java Based        
-        
-Example : XML Based
+XML Based
 --------------------------------------------------------
 
         <beans xmlns="http://www.springframework.org/schema/beans"...">
@@ -29,7 +11,7 @@ Example : XML Based
             </bean>
         </beans>
         
-Example : Annotation Based
+Annotation Based
 --------------------------------------------------------  
         @Service("accountService")
         public class AccountServiceImpl implements AccountService {
@@ -41,10 +23,10 @@ Example : Annotation Based
         }
         
         @Repository("accountDao")
-            public class AccountDaoInMemoryImpl implements AccountDao {
+        public class AccountDaoInMemoryImpl implements AccountDao {
         }
 
-Example : Java Based    #20
+Java Based    #20
 --------------------------------------------------------
 
         @Configuration

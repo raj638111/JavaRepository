@@ -1,0 +1,21 @@
+
+'ApplicationContext'
+-------------------------------------------------------
+
+    #   Is the Spring Container Instance. For example refer... # MainConfig.java  #25
+    #   Has many derivatives
+        +   AnnotationConfigApplicationContext
+        +   more...
+
+AnnotationConfigApplicationContext
+-------------------------------------------------------
+
+    #   Is used for processing Java based Configuration # Ch2BeanConiguration.java 
+        
+ClassPathXmlApplicationContext
+-------------------------------------------------------
+
+    #   Is used to process 
+        +   XML based configuration &  # ch2-beans.xml #26
+        +   Annotation based configuration
+

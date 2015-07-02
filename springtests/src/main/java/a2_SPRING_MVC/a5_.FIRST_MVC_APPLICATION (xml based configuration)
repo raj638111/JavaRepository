@@ -1,0 +1,113 @@
+
+Breadcrumb
+----------------------------------------------------------------66
+    
+    #   RequestMappingHandlerMapping
+    
+        +   Is the default HandlerMapping used by 'DispatcherServlet'
+            starting from Spring 3.2 #71
+        +   Maps URI -> @RequestMapping Handler Method
+            -   @RequestMapping can be define on Class & Method level #71
+                               
+    #   InternalResourceViewResolver
+    
+        +   Is the default Implementation used for View resolution #71
+        +   Extends 'UrlBasedViewResolver' which provides
+            -   prefix  :   In our case we defined /WEB-INF/pages
+            -   suffix  :   In our case we defined .jsp 
+    #   Recommended
+        +   Always place view files in WEB-INF #71
+
+Maven Coordinates
+---------------------------------------------------------------#68
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>4.0.5.RELEASE</version>
+    </dependency>
+    
+    & more...68
+    
+DisptacherServlet (web.xml)    
+---------------------------------------------------------------#69
+
+    <web-app    version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"...
+                http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+        <servlet>
+            <servlet-name>springmvc</servlet-name>                  |-
+            <servlet-class>
+                org.springframework.web.servlet.DispatcherServlet
+            </servlet-class>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+        
+        <servlet-mapping>
+            <servlet-name>springmvc</servlet-name>
+            <url-pattern>*.mvc</url-pattern>            #   This Servlet will act as a gateway #71
+                                                            for all URLs requested with '.mvc'
+                                                            extension
+        </servlet-mapping>
+    </web-app>
+    
+'WebApplicationContext' Configuration(springmvc-servlet.xml)        |-
+----------------------------------------------------------------#69  
+   
+    <beans xmlns="http://www.springframework.org/schema/beans"
+        ...
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        
+        <context:component-scan base-package="com.wiley.beginningspring.ch3" />     #   All beans residing in this package will be
+                                                                                        registered to context automatically
+        <context:annotation-config />                                               #   Need to add this for XML & annotation
+                                                                                        based configurations #53, #70 
+        
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">    # Used for view resolution
+            <property name="prefix" value="/WEB-INF/pages/" />
+            <property name="suffix" value=".jsp" />
+        </bean>
+        
+    </beans>
+    
+    
+Controller
+----------------------------------------------------------------#70
+
+    @Controller
+    public class HelloReaderController {
+    
+        @RequestMapping(value = "/hello")               # Handler Method #71
+        public ModelAndView sayHello() {
+       
+            ModelAndView mv = new ModelAndView();       # Holder for both Model & View in Web MVC Framework
+            
+            mv.addObject("message", "Hello Reader!");   #   Add **attribute to the Model
+                                                        #   This attribute can be passed to view #71
+                                                        #   Model is represented as the Map of key/value pairs #71 
+               
+            mv.setViewName("helloReader");              # Set View Name 
+                                                        # Used with 'prefix' & 'suffix' by InternalResourceViewResolver
+                                                          to find the actual jsp page(ie /WEB-INF/pages/helloReader.jsp) #71      
+            return mv;
+        }
+    }
+
+JSP (helloReader.jsp)
+----------------------------------------------------------------#70
+
+    <html>
+        <body>
+            ${message}
+        </body>
+    </html>
+
+
+
+
+
+
+
+  
+
+
+    

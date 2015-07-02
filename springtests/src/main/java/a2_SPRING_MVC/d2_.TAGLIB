@@ -1,0 +1,11 @@
+
+Info
+---------------------------------------------------------73
+
+    #   Form tag library
+        +   <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
+        
+    #   Internationalization Library    
+        +   <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+    
+   

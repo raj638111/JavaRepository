@@ -1,0 +1,18 @@
+
+Info
+--------------------------------------------------------------------57
+
+    #   Repersents the environment(dev, prod etc...) in which 
+        the Application runs
+        
+    #   Is introduce in Spring 3.1        
+
+    #   Breadcrumb
+        +   'PropertySourcesPlaceholderConfigurer'
+        
+        +   @Value Annotation for Method argument default value
+        
+        +   ConfigurableEnvironment environment = applicationContext.getEnvironment();
+            environment.setActiveProfiles("dev");
+            
+        +   For good example check...Ch2Configuration.java         

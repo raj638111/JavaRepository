@@ -1,0 +1,7 @@
+#   Component Scan Process #29
+    
+        +   Is the process of creating bean by Scanning Classes in Classpath  
+        +   <context:component-scan/> : XML namespace element that enables @Component annotations
+            -   Is used to narrow the Classpath #annotationbased.xml
+                reduce the component scanning time 
+            -   Breadcrumb : Schema location directives

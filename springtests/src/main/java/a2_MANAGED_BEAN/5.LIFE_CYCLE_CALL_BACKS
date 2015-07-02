@@ -1,0 +1,33 @@
+
+Info
+-----------------------------------------------------------52
+
+    #   Can be used for
+        +   initialization  : Done after the creation of bean
+        +   cleanup         : Done before the termination of a beans defined scope
+        
+    #   Note
+        +   'prototype' scoped beans are not tracked & so we cannot 
+            do initialization & cleanup #53
+            
+    
+'init-method' & 'destroy-method'
+-----------------------------------------------------------52
+
+    #   Can be used for XML based configuration
+    
+    #   Example
+        +   <bean id="foo"  class="com.wiley.beginningspring.ch2.Foo"
+                        init-method="init" destroy-method="destroy"/>
+                        
+@PostConstruct & @PreDestroy
+-----------------------------------------------------------53
+
+    #   Can be used for XML based & Annotation based configuration
+    #   Would need to used with nam
+        +   espace element<context:annotation‐config/>
+               
+'InitializingBean' & 'DisposableBean' Interface
+-----------------------------------------------------------53
+  
+    #   Check example here...#54

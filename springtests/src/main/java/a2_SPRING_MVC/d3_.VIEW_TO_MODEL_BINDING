@@ -1,0 +1,12 @@
+
+Info
+----------------------------------------------------------74
+
+    #   Request(View) parameters can be binded with Model(Command Object)
+    #   Command Object
+        +   The Model object to which the view is bounded is called
+            Command Object (aka Form Object or Form-Backing object)
+    #   'path' attribute    
+        +   Binding is enabled through 'path' attribute
+        +   Ex : <mvc:input path="name" />            
+            

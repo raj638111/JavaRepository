@@ -1,0 +1,47 @@
+
+Dispatcher Servlet
+------------------------------------------------------------------65
+
+    #   Acts as an entry point for handling all web applications
+    #   Spring MCV follows 'Front Controller Pattern' with Dispatcher Servlet
+    #   Check nice diagram here...#65
+        
+'HandlerMapping' & 'ViewResolver' Interface
+------------------------------------------------------------------66
+
+    #   HandlerMapping
+        +   Is used to map an URL with Controller Class
+        
+    #   ViewResolver
+        +   Used to resolve the view
+            
+        
+Available HandlerMapping Implementations
+------------------------------------------------------------------66
+
+    #   ControllerClassNameHandlerMapping
+    
+        +   Returns a URL from the Controller Class
+        +   Example (What it returns)
+            -   DemoController  -> /demo
+            
+    #   BeanNameUrlHandlerMapping
+                
+        +   Is the default implementation used by Dispatcher Servlet
+        +   Example
+            -   /hello is dispatched to HelloController
+            
+    #   DefaultAnnotationHandlerMapping
+        ...
+        
+Sub project that contains default Handler Implementations
+------------------------------------------------------------------66
+           
+    #   Package
+        +   org.springframework.web.servlet
+        
+    #   Sub project
+        +   spring‐webmvc
+                       
+        
+       

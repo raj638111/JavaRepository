@@ -1,0 +1,15 @@
+
+REST Methods
+-----------------------------------------------------------306
+    
+    #   POST    Create a resource   (C)
+    #   GET     Retrieve a resource (R)
+    #   PUT     Update a resource   (U)
+    #   DELETE  Delete a resource   (D)
+    
+DispatcherServlet
+-----------------------------------------------------------306
+
+    #   All requests are handled through DispatcherServlet
+    
+          

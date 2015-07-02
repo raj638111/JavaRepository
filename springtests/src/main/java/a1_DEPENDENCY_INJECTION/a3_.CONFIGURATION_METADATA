@@ -1,0 +1,15 @@
+
+
+Configuration Metadata
+--------------------------------------------------------18
+    
+    #   Beans, its instantiation & its wiring needs to be specified in
+        Configuration Metadata
+        
+    #   Application Classes are assembled as Beans with the help of this Configurtion information
+    
+    #   Ways to configure  #19
+        1.  XML Based
+        2.  Annotation Based
+        3.  Java Based        
+        

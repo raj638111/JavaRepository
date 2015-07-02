@@ -1,0 +1,46 @@
+
+Info
+-------------------------------------------------------------------------#56
+
+    #   Can be used to define beans according to run time
+        environment
+        
+    #   Available from Spring 3.1        
+    
+'profile' attribute
+-------------------------------------------------------------------------#56
+
+    #   Is used to define the profile for XML based configuration 
+    #   Breadcrumb
+        +   Will have to use Nested 'beans' structure
+        +   -Dspring.profile.active         
+        +   -Dspring.profile.default (Default Profile)
+    #   
+    #   Example
+        
+        <beans  xmlns="http://www.springframework.org/schema/beans"
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+                
+            <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+            <property name="dataSource" ref="dataSource"/>
+            </bean>
+            
+            <beans profile="dev,test">
+                <bean id="dataSource"
+                class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
+                ...
+                <property name="password" value="" />
+                </bean>
+            </beans>
+            <beans profile="prod">
+                <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+                .....
+                </bean>
+            </beans>
+        </beans>
+
+@Profile annotation
+-------------------------------------------------------------------------#56
+
+    #   Used with Annotation & Java based configuration
+        

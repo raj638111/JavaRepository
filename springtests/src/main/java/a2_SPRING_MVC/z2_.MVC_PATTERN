@@ -1,0 +1,9 @@
+
+Info
+---------------------------------------------------------
+
+    #   Model       (Domain Specific Information)
+    #   View
+    #   Controller  (Transforms user input into a Model)
+    
+    #   Check this nice diagram #64

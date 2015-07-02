@@ -1,0 +1,29 @@
+
+Info
+-----------------------------------------------------------51
+    #   Advantage
+        +   Boootup time is faster  #52
+        
+    #   Types of Initialization
+    
+        1.  Eager bean initialization
+            +   This is the default. Beans created during startup
+            
+        2.  Lazy bean initialization
+            +   Creation
+
+XML based configuration
+-----------------------------------------------------------52
+
+    #   Following attributes can be used(Example)
+    
+        +   default-lazy-init   = true
+        +   lazy-init           = false
+
+Annotation & Java based configuration
+-----------------------------------------------------------52
+
+    #   Following attribute can be used
+        +   @Lazy(true)
+
+        
