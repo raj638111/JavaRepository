@@ -1,12 +1,12 @@
-package z_CODE_EXAMPLES.a_SECOND_CHAPTER.c_JAVA_BASED_AUTOWIRING;
+package z1_CODE_EXAMPLES.a_SECOND_CHAPTER.b_ANNOTATION_BASED_CONFIGURATION;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Main {
+public class MainAnnotationBased {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Ch2BeanConfiguration.class);
-		AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("/com/wiley/beginningspring/ch2/ch2-beans.xml");
+		AccountService accountService = applicationContext.getBean("accountServiceImpl", AccountService.class);
 
 		System.out.println("Before money transfer");
 		System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
@@ -17,6 +17,7 @@ public class Main {
 		System.out.println("After money transfer");
 		System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
 		System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
+
 	}
 
 }

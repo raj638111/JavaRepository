@@ -1,4 +1,4 @@
-package z_CODE_EXAMPLES.a_SECOND_CHAPTER.c_JAVA_BASED_AUTOWIRING;
+package z1_CODE_EXAMPLES.a_SECOND_CHAPTER.c_JAVA_BASED_AUTOWIRING;
 
 import java.util.ArrayList;
 import java.util.HashMap;

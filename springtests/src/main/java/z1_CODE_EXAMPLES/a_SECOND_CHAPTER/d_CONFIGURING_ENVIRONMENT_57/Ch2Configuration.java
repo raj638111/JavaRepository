@@ -1,4 +1,4 @@
-package z_CODE_EXAMPLES.a_SECOND_CHAPTER.d_CONFIGURING_ENVIRONMENT_57;
+package z1_CODE_EXAMPLES.a_SECOND_CHAPTER.d_CONFIGURING_ENVIRONMENT_57;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

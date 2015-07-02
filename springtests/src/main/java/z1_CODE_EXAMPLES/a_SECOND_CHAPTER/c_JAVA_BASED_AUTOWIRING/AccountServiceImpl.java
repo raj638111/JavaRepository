@@ -1,8 +1,13 @@
-package z_CODE_EXAMPLES.a_SECOND_CHAPTER.a_JAVA_n_XML_BASED_CONFIGURATION;
+package z1_CODE_EXAMPLES.a_SECOND_CHAPTER.c_JAVA_BASED_AUTOWIRING;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class AccountServiceImpl implements AccountService {
 	private AccountDao accountDao;
 
+	@Autowired
+	@Qualifier
 	public void setAccountDao(AccountDao accountDao) {
 		this.accountDao = accountDao;
 	}
