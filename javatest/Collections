@@ -1,9 +1,8 @@
 
 '*' represents Implementation
 
--------------------------------------------------------------------------------------------
 Legacy Collections
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 	# Are thread safe
 	# *HashTable
 		+ We use keys to access values in Hash
@@ -22,18 +21,24 @@ Legacy Collections
 	# *Stack
 		+ Is LIFO
 
--------------------------------------------------------------------------------------------
-Collections that need to be Synchronized using Collections.synchronizedXXX
----------------------------------------------------------------------------
+Thread UNSAFE Collections(that need to be Synchronized using Collections.synchronizedXXX)
+--------------------------------------------------------------------------------------------
+
 	# List
 		+ A list always preserves the order
 		+ http://www.coderanch.com/t/540641/java/java/maintain-order-list
+		
 		+ *ArrayList
 			? Difference b/w ArrayList & LinkedList 
 			  - ArrayList uses Array, so search is faster, whereas linked list needs to
 			  	traverse
 			  - Element Deletion & insertion is faster in LinkedList
 			  - http://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java/
+			  
+        + *LinkedList
+            - A Concrete Implementation of List & Queue Interface
+            - Can also insert in between as this is a Linked List
+        			  
 	# Set
 		+ A collection that contains no Duplication
 		+ Can maintain or do not maintain order based on the Implementation
@@ -42,9 +47,6 @@ Collections that need to be Synchronized using Collections.synchronizedXXX
 			  	
 	# Queue	
 		+ Insertion happens at tail & removal happens at head(FIFO)
-		+ *LinkedList (List)
-			- A Concrete Implementation of Queue
-			- Can also insert in between as this is a Linked List
 		+ *PriorityQueue 
 			- Can use our own Comparator to prioritize the elements in Queue
 			- http://www.journaldev.com/1642/java-priority-queue-priorityqueue-example

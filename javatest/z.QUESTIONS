@@ -1,5 +1,10 @@
 
 
-    - What is the need to override hashcode & equals method in a Class
-    - SOAP Binding
-    - What are the contents of WSDL
+    # What is the need to override hashcode & equals method in a Class
+    # SOAP Binding
+    # What are the contents of WSDL
+    
+    #   equals() & hashcode() method
+        +   If we override one method, we should always override the other method
+        +   http://stackoverflow.com/questions/2265503/why-do-i-need-to-override-the-equals-and-hashcode-methods-in-java
+    

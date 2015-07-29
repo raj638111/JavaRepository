@@ -3,7 +3,7 @@
 Configuration Metadata
 --------------------------------------------------------18
     
-    #   Beans, its instantiation & its wiring needs to be specified in
+    #   Beans instantiation & its wiring needs to be specified in
         Configuration Metadata
         
     #   Application Classes are assembled as Beans with the help of this Configurtion information

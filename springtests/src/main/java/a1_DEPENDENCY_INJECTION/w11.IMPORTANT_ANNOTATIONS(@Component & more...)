@@ -1,0 +1,33 @@
+
+@Component
+-----------------------------------------------------------------------
+
+    #   Used to define a Spring managed bean. 
+    
+    #   Derivatives
+    
+        +   @Service    
+            -   Defines a Spring Managed Bean
+            
+        +   @Repository
+            -   Defines a Spring Managed Bean with additional capability for data access
+            
+        +   @Controller
+            -   Represents a Controller Bean #59
+        
+@Autowired
+-----------------------------------------------------------------------
+
+    #   Indicates a setter method to inject dependency
+
+@RequestMapping
+-----------------------------------------------------------------------84
+
+    #   Used to map Users request to Handler Class or Methods
+    
+@ModelAttribute
+-----------------------------------------------------------------------84
+
+    #   
+
+    

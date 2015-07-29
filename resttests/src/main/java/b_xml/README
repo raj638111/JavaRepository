@@ -1,0 +1,1 @@
+GET http://localhost:8080/resttests/xml/userclr/users/1 : This returns XML value

@@ -1,0 +1,49 @@
+
+
+Difference b/w Interface & Abstract Class
+----------------------------------------------------------------------------------------
+	#  Interface
+		  + Object cannot be instantiated
+		  + All methods in interface are public & cannot be implemented
+		  + Multiple Interface can be implemented
+	#  Abstract Class
+		  + Methods can have implementation, but the object cannot be instantiated
+		  + Only one Abstract class can be extended at a time
+
+Cloning
+----------------------------------------------------------------------------------------
+	
+	#  To support cloning for an object, we need to
+	
+	   +   Implement 'Cloneable' Interface
+	   +   Override clone() method of the object
+
+    #   Shallow cloning
+     
+        +  Will retain the non-primitive type reference in both the objects
+           
+    #   Deep cloning
+		   -  Done through explicit reference updation(so that the reference has a new object) (or)
+		   -  Done through copy constructors
+
+    #   To avoid Cloning,
+        +   Implement 'Cloneable' Interface & override clone() method to
+            throw 'CloneNotSupported' Exception
+        +   Useful for 'Singleton' objects     
+		 
+		
+	#  Reference
+	   +   http://howtodoinjava.com/2012/11/08/a-guide-to-object-cloning-in-java/
+	
+
+Serializable
+----------------------------------------------------------------------------------------
+
+	# Is a Marker Interface. A Marker Interface do not contain any fields or methods
+	# http://javatechig.com/design-patterns/singleton-design-pattern-in-java
+	
+Singleton
+----------------------------------------------------------------------------------------
+
+	# http://javatechig.com/design-patterns/singleton-design-pattern-in-java
+	

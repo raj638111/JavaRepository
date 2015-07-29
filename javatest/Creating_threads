@@ -6,8 +6,10 @@ Locks in Java
 		-> Each object has an intrinsic lock available which can be used for synchronization
 	# Reentrant Lock
 		-> Good 
+		    - Can hold the lock across method
 			- Provides Interruptibility & timed wait
 			- Also provides fairness, so a long waiting thread might be able to acquire the lock
+			- http://stackoverflow.com/questions/11821801/why-use-a-reentrantlock-if-one-can-use-synchronizedthis
 		-> Bad
 			- Unlock needs to happen in finally block, which we might miss sometimes
 			- http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html
