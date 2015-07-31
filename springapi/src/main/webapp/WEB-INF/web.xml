@@ -1,0 +1,29 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+version="3.1">
+
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		  <!-- +  Will look for a servlet configuration file 'springmvc-servlet.xml' -->
+		  
+		<servlet-class>
+		   org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		  <!--+   Takes an Incoming request and delegates the Processing of request to one of the Handlers availalbe
+		          -   http://stackoverflow.com/questions/2769467/what-is-dispatcher-servlet-in-spring 
+		      +  Is used to create Child 'ApplicationContext' from Parent ApplicationContext #38, #DispatcherServlet-->
+		
+		<load-on-startup>1</load-on-startup>
+		  <!--+   Tell the Servlet Container to load the Servlet as soon as the Servlet Container starts 
+		          -   http://stackoverflow.com/questions/7803339/why-we-write-load-on-startup2-load-on-startup-in-web-xml-while-using-struts 
+		              -->
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
