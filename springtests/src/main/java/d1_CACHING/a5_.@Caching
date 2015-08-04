@@ -1,0 +1,26 @@
+
+Info
+---------------------------------------------------------------
+
+    #   Is a Group annotation
+    #   Can be used to provide arrays of @Cacheable, @CacheEvict or @CachePut #293
+    
+Example
+---------------------------------------------------------------
+
+    public class ClassroomService {
+    
+        @Caching(cacheable = {
+            @Cacheable( value = "students",
+                        condition = "#obj instanceof T(com.wiley.beginningspring.ch10.Student)"),
+            @Cacheable( value = "teachers",
+                        condition = "#obj instanceof T(com.wiley.beginningspring.ch10.Teacher)")
+        })
+        
+        public Person getPerson(Person obj) {
+        return ppl.get(obj.getId());
+        }
+        
+    }
+    
+    

@@ -1,0 +1,11 @@
+
+Info
+----------------------------------------------------------------
+    
+    #   Spring support integration with following enterprise
+        Cache Managers
+        
+        +   Ehcache     #299
+        +   Guava       #302
+        +   Hazlecast   #302 
+           

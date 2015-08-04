@@ -1,0 +1,29 @@
+
+Way to get Database connection #105
+-------------------------------------------------------------
+
+    #   DriverManager (or)
+    #   DataSource
+            -   Is preferred
+            
+DataSource #105
+-------------------------------------------------------------
+            
+    #   Classes are,
+        +   DriverManagerDataSource
+        +   SingleConnectionDataSource
+            -   Reuse the same connection over & over again
+            -   Good for test & stand-alone environment
+    #   Note
+        +   DO NOT use DriverManagerDataSource in Production as it opens new connection
+            everytime 'getConnection()' method is called
+            
+Connection Pooling #108
+-------------------------------------------------------------
+    
+    #   DataSource
+        +   Connection pooling can be configured for DataSource in Application Servers #108    
+    #   Others
+        +   Can also be enabled using C3PO or Apache Commons Library    #108
+            -   http://sourceforge.net/projects/c3p0
+            -   http://commons.apache.org/proper/commons‐dbcp/            

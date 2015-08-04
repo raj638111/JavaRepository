@@ -4,6 +4,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:context="http://www.springframework.org/schema/context"
 xmlns:mvc="http://www.springframework.org/schema/mvc"
 xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:cache="http://www.springframework.org/schema/cache"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
@@ -11,43 +12,72 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 http://www.springframework.org/schema/aop
-http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+http://www.springframework.org/schema/cache
+http://www.springframework.org/schema/cache/spring-cache-4.0.xsd"
 >
 
-	<context:component-scan base-package="com.rj" />
-	   <!-- +  Enable component scan & narrow the class path so that bootstrap takes less time
-	           #component-scan, #29 -->
-	       
+    <!-- +  Enable component scan & narrow the class path so that bootstrap takes less time
+               #component-scan, #29 -->
+    <context:component-scan base-package="com.rj" />
+
+    <!-- +  Enable JSR-250 Annotations #annotation-config, #53, #annotation-config
+         +  Activates annotations that are defined in the Beans #317 
+        -->
 	<context:annotation-config />
-	   <!-- +  Enable JSR-250 Annotations #annotation-config, #53, #annotation-config
-	        +  Activates annotations that are defined in the Beans #317 
-	       -->
 	
+	<!-- + Set this to recognize Cache related annotations #288 
+	 -->
+	<cache:annotation-driven /> 
+
+    <!--+   Configures annotation driven Spring MVC Controller programming model #317
+        +  Registers the 'Handler mapping' required to dispatch request to Controllers
+        +   Provides sensible default for   #annotation-driven 
+            -   Number formatting
+            -   Date & Time formatting(@DateTimeFormat)  #71
+            -   Reading & Writing XML/JSON
+            -   http://spring.io/blog/2009/12/21/mvc-simplifications-in-spring-3-0/
+            -   http://stackoverflow.com/questions/3977973/whats-the-difference-between-mvcannotation-driven-and-contextannotation
+    -->
 	<mvc:annotation-driven />
-        <!--+   Configures annotation driven Spring MVC Controller programming model #317
-            +  Registers the 'Handler mapping' required to dispatch request to Controllers
-            +   Provides sensible default for   #annotation-driven 
-                -   Number formatting
-                -   Date & Time formatting(@DateTimeFormat)  #71
-                -   Reading & Writing XML/JSON
-                -   http://spring.io/blog/2009/12/21/mvc-simplifications-in-spring-3-0/
-                -   http://stackoverflow.com/questions/3977973/whats-the-difference-between-mvcannotation-driven-and-contextannotation
-             -->
-             
+   
+   <!-- http://www.tutorialspoint.com/spring/spring_jdbc_example.htm -->
     <bean id="dataSource" 
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/hadoopguide"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/springdb"/>
 		<property name="username" value="root"/>
 		<property name="password" value="root"/>
-        <!-- http://www.tutorialspoint.com/spring/spring_jdbc_example.htm -->
     </bean>
    
     <!-- Acts a a Wrapper around DataSource -->
+    <!-- http://stackoverflow.com/questions/17868096/using-spring-jdbctemplate-injecting-datasource-vs-jdbctemplate -->
+    <!-- http://stackoverflow.com/questions/22019796/error-whats-missing-in-spring-namedjdbctemplate -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <!-- 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
-        <!-- http://stackoverflow.com/questions/17868096/using-spring-jdbctemplate-injecting-datasource-vs-jdbctemplate -->
+    </bean>  -->
+    
+    <!-- +  In order to use Caching, define a bean with id 'cacheManager' & class 'SimpleCacheManager'
+            (Note : Do not use any other name for 'id') #288
+         +  The inner bean id should match(in this case 'repo') the 'value' attribute
+            in @Cacheable annotation (Note : 'repo' is mentioned in DepartmentController)
+         +  Note here... ConcurrentMap is used as backing store for Cache #288
+         +  More on SimpleCacheManager #293            
+     -->
+    <bean id="cacheManager"
+		class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean id="repo"
+				     class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+			</set>
+		</property>
     </bean>
+    
    
     <!--  ?? : When AOP enabled, GET is no longer working -->
     <!-- <aop:aspectj-autoproxy/>  -->  

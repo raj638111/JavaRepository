@@ -1,0 +1,55 @@
+
+Entity
+-----------------------------------------------------------------#140
+
+    #   Entity
+    
+        +   Is an object corresponding to Table in database side
+            with its own primay key
+    
+        +   An Entity can be mapped to one table or more than one table
+        
+
+Annotations
+-----------------------------------------------------------------#140
+           
+    #   @Entity
+        +   Defines the Class as Persistent type(ie they will have corresponding table)
+        
+    #   @Table
+        +   Specifies Name of the table
+        +   If not specified, name of the Class is used as table name
+        
+    #   @Id
+        +   Used to mark a member variable as Primary key attribute
+        +   Name of the Primay key column match name of the Property
+        +   Read more....@Column etc... #140
+        
+    #   @GeneratedValue
+        +   Denotes the Primay key is a Surrogate or Synthetic primary key  #141
+            & the application do not deal with generating value for the key
+        +   JPA Vendor generates value for the Key
+        
+        @Entity
+        @Table(name="users")
+        public class User {
+            @Id
+            @GeneratedValue
+            private Long id;
+        }
+        
+    #   @Transient  #141
+        +   Used to denote an attribute to be non-persistent
+        +   By default, an attribute in Class in mapped to a Column in a table with the
+            same name
+        
+        private String username;
+        
+        @Basic(optional=false)
+        @Column(name="passwd",nullable=false,length=128)
+        private String password;
+        
+        private transient Boolean selected;
+        
+        
+    More...ID Generation stratgies(Oracle, MySQL)..here #141                                              

@@ -1,0 +1,13 @@
+
+Info
+----------------------------------------------------------#141
+
+    #   Based on the location of @Id, JPA decides access strategy
+    
+    #   @Id on field
+        +   No public getter methods are needed
+        +   JPA uses reflection to retrieve all the fields
+        
+    #   @Id on method   
+        +   JPA need public getter method for all the fields to 
+            retrieve its value        

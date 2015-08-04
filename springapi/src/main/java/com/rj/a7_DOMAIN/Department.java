@@ -1,4 +1,4 @@
-package com.rj.a1_DOMAIN;
+package com.rj.a7_DOMAIN;
 
 public class Department {
 

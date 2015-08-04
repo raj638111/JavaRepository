@@ -1,0 +1,37 @@
+
+Info
+---------------------------------------------------------
+
+    #   Is useful when we want to initialize cache during #297
+        application startup
+        
+        +   Example : Loading data from a table into cache
+        
+    #   Implemented in : @PostConstruct
+    
+Example
+---------------------------------------------------------#297
+    @Service
+    public class UserService {
+        private Map<Integer, User> users = new HashMap<>();
+        {
+            users.put(1, new User(1, "Kenan"));
+            users.put(2, new User(2, "Mert"));
+        }
+        @Autowired
+        private CacheManager cacheManager;
+
+        @PostConstruct      //****
+        public void setup() {
+            Cache usersCache = cacheManager.getCache("users");
+            for (Integer key : users.keySet()) {
+                usersCache.put(key, users.get(key));
+            }
+        }
+              
+        @Cacheable(value = "users")
+        public User getUser(int id) {
+            System.out.println("User with id " + id + " requested.");
+            return users.get(id);
+        }
+    }        

@@ -1,0 +1,38 @@
+
+@Cacheable
+---------------------------------------------------
+    
+    #   How to define   #291
+        +   @Cacheable("users") (or)
+        
+        +   @Cacheable(value = "users")
+            public User getUser(int id) {
+                return users.get(id);
+            }
+            -   Here "users" is the storage name & key will be the 
+                method argument. The value is 'users'
+    #   Note
+        +   Caching is done first before the method is executed
+        
+Custom Key
+---------------------------------------------------
+
+    #   By default,
+        +   The argument is used as key
+        
+    #   Custom key can be provided like this,
+        +   @Cacheable(value="users", key="#user.nationalId)    //291
+            public User getUser(User user)
+            -   Note : The key is provided using SpEL expression 
+
+Conditional Caching
+---------------------------------------------------
+
+    #   Read more...#291            
+
+    
+@CachePut
+---------------------------------------------------
+
+    #   Method always get executed first & the return value 
+        is put to Cache

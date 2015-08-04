@@ -1,7 +1,7 @@
 package com.rj.a3_REPOSITORY;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,11 +12,12 @@ import javax.annotation.PreDestroy;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.rj.a1_DOMAIN.Department;
-import com.rj.a2_DAO.DepartmentDAO;
+import com.rj.a5_DAO.DepartmentDAO;
+import com.rj.a7_DOMAIN.Department;
+import com.rj.b1_MAPPER.DepartmentMapper;
 
 @Repository								/*	
 										 	+	Inherits @Component
@@ -33,8 +34,11 @@ public class DepartmentRepository implements DepartmentDAO {
 											+ 	Datasource to access database #107
 											+	??? : Is it possible to use 'DataSource' here?
 	 									*/
+	
 	@Autowired
-	private JdbcTemplate template;		/*	+	Template acts as a wrapper around DataSource
+	private NamedParameterJdbcTemplate jdbcTemplate;
+	//private JdbcTemplate jdbcTemplate;	
+										/*	+	Template acts as a wrapper around DataSource
 										*/
 	//-----------------------------------------------------------
 	
@@ -68,10 +72,10 @@ public class DepartmentRepository implements DepartmentDAO {
 	//-----------------------------------------------------------
 	
 	//Return all departments as a List
-	public List<Department> getAll() {
+	/*public List<Department> getAll() {
 		return new ArrayList<Department>(departments.values());
 		
-	}
+	}*/
 
 	
 	@Override
@@ -100,8 +104,17 @@ public class DepartmentRepository implements DepartmentDAO {
 
 	@Override
 	public List<Department> select() {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "select * from department";
+		List<Department> departments = jdbcTemplate.query(SQL, new DepartmentMapper());
+		return departments;
+	}
+	
+	@Override 
+	public List<Department> select(int departmentId) {
+		String SQL = "select * from department where departmentId=:dId";
+		Map map = Collections.singletonMap("dId", departmentId);
+		List<Department> departments =  jdbcTemplate.query(SQL, map, new DepartmentMapper());
+		return departments;
 	}
 
 }

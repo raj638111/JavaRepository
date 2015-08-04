@@ -1,0 +1,10 @@
+
+Info
+---------------------------------------------------------------------
+    
+    #   Different cache CacheManager implementations are available
+    
+    #   SimpleCacheManager  #293
+        NoOpCacheManager
+        ConcurrentMapCacheManager
+        CompositeCacheManager

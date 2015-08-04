@@ -8,3 +8,5 @@
         +   If we override one method, we should always override the other method
         +   http://stackoverflow.com/questions/2265503/why-do-i-need-to-override-the-equals-and-hashcode-methods-in-java
     
+    #   Practice putIfAbsent() method #BC48
+    #   Garbage collection (Old generation & New generation) #BC53
